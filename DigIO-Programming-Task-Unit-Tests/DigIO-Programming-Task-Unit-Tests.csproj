@@ -13,4 +13,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DigIO-Programming-Task-API\DigIO-Programming-Task-API.csproj" />
+  </ItemGroup>
+
 </Project>
