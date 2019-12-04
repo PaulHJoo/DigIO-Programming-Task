@@ -9,7 +9,7 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogIncorrectNumberOfFields()
         {
             var activityLine = "79.125.00.21 - - [10/Jul/2018:20:03:40 +0200]" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);
@@ -20,8 +20,8 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogIncorrectNumberOfIpUserAndDateFields()
         {
             var activityLine = "79.125.00.21 - [10/Jul/2018:20:03:40 +0200]" +
-                "\"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);
@@ -32,8 +32,8 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogIncorrectNumberRequestFields()
         {
             var activityLine = "79.125.00.21 - - [10/Jul/2018:20:03:40 +0200]" +
-                "\"GET /newsletter/\" 200 3574 \"-\"" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"GET /newsletter/\" 200 3574 \"-\"" +
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);
@@ -44,8 +44,8 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogIncorrectNumberOfIpAddressBits()
         {
             var activityLine = "79.125.00 - - [10/Jul/2018:20:03:40 +0200]" +
-                "\"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);
@@ -56,8 +56,8 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogNonNumericInIpAddress()
         {
             var activityLine = "79.125.00.21a - - [10/Jul/2018:20:03:40 +0200]" +
-                "\"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"GET /newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);
@@ -68,8 +68,8 @@ namespace DigIO_Programming_Task_Unit_Tests
         public void LogInvalidUrl()
         {
             var activityLine = "79.125.00.21 - - [10/Jul/2018:20:03:40 +0200]" +
-                "\"GET newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
-                "\"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
+                " \"GET newsletter/ HTTP/1.1\" 200 3574 \"-\"" +
+                " \"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)\"";
             var errors = LogActivityValidator.Validate(activityLine, 1);
 
             Assert.Single(errors);

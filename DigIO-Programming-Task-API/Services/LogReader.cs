@@ -16,22 +16,32 @@ namespace DigIO_Programming_Task_API.Services
             LogFile = log;
         }
 
-        public async Task<IEnumerable<LogActivity>> ReadLog()
+        public async Task<LogReadResult> ReadLog()
         {
             var logActivityList = new List<LogActivity>();
             var logActivityErrorsList = new List<string>();
             using (var reader = new StreamReader(LogFile.OpenReadStream()))
             {
-                var lineNumber = 1;
+                var lineNumber = 0;
                 while (reader.Peek() >= 0)
                 {
+                    lineNumber++;
                     var activityLine = await reader.ReadLineAsync();
                     var errors = LogActivityValidator.Validate(activityLine, lineNumber);
-                    lineNumber++;
+                    if (errors.Count != 0)
+                    {
+                        logActivityErrorsList.AddRange(errors);
+                        continue;
+                    }
+                    logActivityList.Add(LogActivityMapper.Map(activityLine));
                 }
             }
 
-            return logActivityList;
+            return new LogReadResult
+            {
+                LogActivities = logActivityList,
+                Errors = logActivityErrorsList
+            };
         }
     }
 }
