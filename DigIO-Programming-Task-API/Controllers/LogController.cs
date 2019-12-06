@@ -1,8 +1,8 @@
-﻿using DigIO_Programming_Task_API.Services;
+﻿using DigIO_Programming_Task_API.Models;
+using DigIO_Programming_Task_API.Services;
+using DigIO_Programming_Task_Services.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -12,18 +12,24 @@ namespace DigIO_Programming_Task_API.Controllers
     public class LogController : Controller
     {
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<string>>> ParseLog([FromForm] IFormFile log)
+        public async Task<ActionResult<ParseLogResponse>> ParseLog([FromForm] IFormFile log)
         {
             if (!FileIsValid(log))
             {
-                //Return Log Error
-                throw new ArgumentException();
+                return BadRequest("Input log is empty or incorrect format.");
             }
 
             var logReader = new LogReader(log);
             var logActivityList = await logReader.ReadLog();
 
-            return new string[] { "value1", "value2" };
+            var logAnalyser = new LogActivityAnalyser(logActivityList.LogActivities);
+            var logAnalysis = logAnalyser.AnalyseWithTopResults(3);
+
+            return new ParseLogResponse
+            {
+                LogAnalysis = logAnalysis,
+                Errors = logActivityList.Errors
+            };
         }
 
         private bool FileIsValid(IFormFile log)
