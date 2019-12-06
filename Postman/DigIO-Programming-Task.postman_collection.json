@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "b7783878-a980-4036-b67d-45ee9f3c5bf6",
+		"name": "DigIO-Programming-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Happy Path",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "log",
+							"type": "file",
+							"src": "programming-task-example-data.log"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"log"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log Errors",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "log",
+							"type": "file",
+							"src": "programming-task-example-data-incorrect.log"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"log"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incorrect File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "log",
+							"type": "file",
+							"src": "programming-task.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"log"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
