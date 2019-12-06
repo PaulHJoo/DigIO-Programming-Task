@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigIO-Programming-Task-Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigIO-Programming-Task-API", "DigIO-Programming-Task-API\DigIO-Programming-Task-API.csproj", "{EC3182A1-DDC1-4545-8B02-880F985C93A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigIO-Programming-Task-Services", "DigIO-Programming-Task-Services\DigIO-Programming-Task-Services.csproj", "{E281D981-001D-4464-9469-C4174D954CA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigIO-Programming-Task-Services", "DigIO-Programming-Task-Services\DigIO-Programming-Task-Services.csproj", "{E281D981-001D-4464-9469-C4174D954CA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
