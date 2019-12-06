@@ -23,7 +23,7 @@
 						{
 							"key": "log",
 							"type": "file",
-							"src": "programming-task-example-data.log"
+							"src": "/C:/Users/Paul/Documents/DigIO-Programming-Task/Postman/programming-task-example-data.log"
 						}
 					]
 				},
@@ -60,7 +60,7 @@
 						{
 							"key": "log",
 							"type": "file",
-							"src": "programming-task-example-data-incorrect.log"
+							"src": "/C:/Users/Paul/Documents/DigIO-Programming-Task/Postman/programming-task-example-data-incorrect.log"
 						}
 					]
 				},
@@ -97,7 +97,7 @@
 						{
 							"key": "log",
 							"type": "file",
-							"src": "programming-task.pdf"
+							"src": "/C:/Users/Paul/Documents/DigIO-Programming-Task/Postman/programming-task.pdf"
 						}
 					]
 				},
