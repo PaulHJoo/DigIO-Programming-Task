@@ -1,6 +1,6 @@
 # DigIO Programming Task
 
-Analysis of log files. <br />
+Analysis of log files.<br />
 A .NET Core Web API.
 
 ### Prerequisites
